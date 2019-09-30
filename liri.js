@@ -37,10 +37,11 @@ function concertThis(){
 function movieThis(){
     axios.get("http://www.omdbapi.com/?apikey=trilogy&t=" + userInput + "&y=&plot=short")
   .then(function (response) {
-    console.log(response.data)
+    //console.log(response.data)
     console.log("Title: " + response.data.Title);
-    console.log(JSON.stringify("Released:  "+ response.data.Year));
+    console.log("Released:  "+ response.data.Year);
     console.log("IMdB Rating: " + response.data.imdbRating);
+    console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
     console.log("Country: " + response.data.Country);
     console.log("Language: " + response.data.Language);
     console.log("Plot: " + response.data.Plot);
