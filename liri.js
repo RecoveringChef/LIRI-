@@ -13,15 +13,15 @@ var fs = require("fs");
 
 
 var whatToDo = process.argv[2];
-var userInput = process.argv[3];
+var userInput = process.argv.slice(3).join(" ");
 
 function spotifyThis(input){
     spotify
-        .search({ type: 'track', query: input, limit: 1})
+        .search({ type: 'track', query: input, limit: 4})
         .then(function(response) {
-                console.log(JSON.stringify(response.tracks.items[0].artists[0].name, null, 2))
-                console.log(JSON.stringify(response.tracks.items[0].name, null, 2))
-                console.log(JSON.stringify(response.tracks.items[0].album.name, null, 2))
+                console.log(JSON.stringify("Artist: " + response.tracks.items[0].artists[0].name, null, 2))
+                console.log(JSON.stringify("Song: " + response.tracks.items[0].name, null, 2))
+                console.log(JSON.stringify("Album: " + response.tracks.items[0].album.name, null, 2))
                 console.log(JSON.stringify(response.tracks.items[0].artists[0].external_urls.spotify , null, 2))
             })
         
@@ -35,10 +35,17 @@ function concertThis(){
     
 }
 function movieThis(){
-    axios.get("http://www.omdbapi.com/?apikey=trilogy&s=" + userInput)
+    axios.get("http://www.omdbapi.com/?apikey=trilogy&t=" + userInput + "&y=&plot=short")
   .then(function (response) {
-    // handle success
-    console.log(response.data.Search[0]);
+    console.log(response.data)
+    console.log("Title: " + response.data.Title);
+    console.log(JSON.stringify("Released:  "+ response.data.Year));
+    console.log("IMdB Rating: " + response.data.imdbRating);
+    console.log("Country: " + response.data.Country);
+    console.log("Language: " + response.data.Language);
+    console.log("Plot: " + response.data.Plot);
+    console.log("Actors: " + response.data.Actors);
+
   })
   .catch(function (error) {
     // handle error
@@ -46,10 +53,7 @@ function movieThis(){
   })
   .finally(function () {
     // always executed
-  });
- 
-    
-    
+  });    
 }
 function doWhatItSays(){
     
@@ -65,11 +69,11 @@ switch(whatToDo){
         movieThis();
         break;
 
-    case "concert-this":
-        movieThis();
-        break;
+//    case "concert-this":
+  //      concertThis();
+  //      break;
 
-    case "do-what-it-says":
-       doWhatItSays();
-        break;
+  //  case "do-what-it-says":
+ //      doWhatItSays();
+  //      break;
 }
