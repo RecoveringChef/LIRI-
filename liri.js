@@ -28,7 +28,7 @@ function spotifyThis(input){
         .catch(function (err){
         console.log(err);           
         });
-};
+}
 
 //movie func to call omdb for movie data and display what we want out of it
 function movieThis(){
@@ -52,14 +52,13 @@ function movieThis(){
 .finally(function () {
   // always executed
 });    
-};
+}
 
 //bands in town call to get show info and display what we want
 function concertThis(){
   axios.get("https://rest.bandsintown.com/artists/" + userInput + "/events?app_id=codingbootcamp")
   .then(function (response){
 //console.log(response.data);
-
 
 if(response.data.length == 0){
   console.log("Nothing happening. Try again later, maybe?")
@@ -85,18 +84,12 @@ else {
 
 //func to take inoput from linked text file and perform that as a command in place of argv
 function doWhatItSays(){
-  fs.readFile("random.txt", "utf8", function(err, data){
-      if(err){
-          console.log(err)
-      } 
-      
-      else {
-        var fromTxt = data.split(",")
-        
-      };
+  fs.readFile("random.txt", "utf8", function(error, data) {
+    data = data.split(",");
+
+  
     }
-  )
-  }
+  )}
 
   //switch to tell what functions to call based on user input argv[2]
 switch(whatToDo){

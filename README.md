@@ -21,3 +21,13 @@ LIRI takes in commands from the terminal and will look up song data, movie info,
 
 *do-what-it-says* will take in the argument from a linked text file and output the results of that instead of termnal values
 
+
+
+
+[![all nice and compacted down](images/overview.jpg "overview with everything compacted")]
+
+[![spotify-this function](images/Spotify.jpg "Spotify call in action")]
+
+[![movie-this function](images/movie.jpg "movies omdb call operational")]
+
+[![concert-this function](images/concert.jpg "bands in town call results")]
