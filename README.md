@@ -31,3 +31,5 @@ LIRI takes in commands from the terminal and will look up song data, movie info,
 [![movie-this function](images/movie.jpg "movies omdb call operational")]
 
 [![concert-this function](images/concert.jpg "bands in town call results")]
+
+[![do-what-it-says function](images/do_it.jpg "Just following orders")]

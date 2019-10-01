@@ -85,8 +85,10 @@ else {
 //func to take inoput from linked text file and perform that as a command in place of argv
 function doWhatItSays(){
   fs.readFile("random.txt", "utf8", function(error, data) {
-    data = data.split(",");
 
+    var dataArr = data.split(",");
+    console.log(dataArr)
+    spotifyThis(dataArr[1])
   
     }
   )}
